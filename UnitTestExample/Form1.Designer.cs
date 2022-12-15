@@ -41,25 +41,28 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(109, 12);
+            this.txtEmail.Location = new System.Drawing.Point(145, 15);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(207, 20);
+            this.txtEmail.Size = new System.Drawing.Size(275, 22);
             this.txtEmail.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(109, 36);
+            this.txtPassword.Location = new System.Drawing.Point(145, 44);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(207, 20);
+            this.txtPassword.Size = new System.Drawing.Size(275, 22);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.TextChanged += new System.EventHandler(this.OnPasswordTextChanged);
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(12, 105);
+            this.btnRegister.Location = new System.Drawing.Point(16, 129);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(304, 46);
+            this.btnRegister.Size = new System.Drawing.Size(405, 57);
             this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -72,53 +75,59 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwAccounts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgwAccounts.Location = new System.Drawing.Point(322, 11);
+            this.dgwAccounts.Location = new System.Drawing.Point(429, 14);
+            this.dgwAccounts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgwAccounts.Name = "dgwAccounts";
-            this.dgwAccounts.Size = new System.Drawing.Size(575, 140);
+            this.dgwAccounts.RowHeadersWidth = 51;
+            this.dgwAccounts.Size = new System.Drawing.Size(767, 172);
             this.dgwAccounts.TabIndex = 10;
             this.dgwAccounts.TabStop = false;
             // 
             // txtPasswordConfirm
             // 
-            this.txtPasswordConfirm.Location = new System.Drawing.Point(109, 60);
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(145, 74);
+            this.txtPasswordConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
             this.txtPasswordConfirm.PasswordChar = '*';
-            this.txtPasswordConfirm.Size = new System.Drawing.Size(207, 20);
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(275, 22);
             this.txtPasswordConfirm.TabIndex = 3;
             this.txtPasswordConfirm.TextChanged += new System.EventHandler(this.OnPasswordTextChanged);
             // 
             // lblEmail
             // 
-            this.lblEmail.Location = new System.Drawing.Point(3, 11);
+            this.lblEmail.Location = new System.Drawing.Point(4, 14);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(100, 20);
+            this.lblEmail.Size = new System.Drawing.Size(133, 25);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "E-mail:";
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(3, 35);
+            this.label1.Location = new System.Drawing.Point(4, 43);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(133, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Password:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPasswordConfirm
             // 
-            this.lblPasswordConfirm.Location = new System.Drawing.Point(3, 59);
+            this.lblPasswordConfirm.Location = new System.Drawing.Point(4, 73);
+            this.lblPasswordConfirm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPasswordConfirm.Name = "lblPasswordConfirm";
-            this.lblPasswordConfirm.Size = new System.Drawing.Size(100, 20);
+            this.lblPasswordConfirm.Size = new System.Drawing.Size(133, 25);
             this.lblPasswordConfirm.TabIndex = 7;
             this.lblPasswordConfirm.Text = "Confirm password:";
             this.lblPasswordConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 164);
+            this.ClientSize = new System.Drawing.Size(1204, 202);
             this.Controls.Add(this.lblPasswordConfirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEmail);
@@ -127,8 +136,10 @@
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Unit Test Example";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAccounts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
