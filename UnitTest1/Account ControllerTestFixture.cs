@@ -35,5 +35,16 @@ namespace UnitTest1
             var actualResult2 = accountController.ValidatePassword(password);
             Assert.AreEqual(expectedResult, actualResult2);
         }
+        public void TestRegisterHappyTest(string email, string password)
+        {
+            var accountController = new AccountController();
+
+            var actualResult = accountController.Register(email, password);
+
+            Assert.AreEqual(email, actualResult.Email);
+            Assert.AreEqual(password, actualResult.Password);
+            Assert.AreNotEqual(Guid.Empty, actualResult.ID);
+
+        }
     }
 }

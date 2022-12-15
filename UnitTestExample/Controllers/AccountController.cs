@@ -57,5 +57,6 @@ namespace UnitTestExample.Controllers
             return hasSmallLetter.IsMatch(password) && hasCapital.IsMatch(password) && hasNumber.IsMatch(password) && isEightLong.IsMatch(password);
           
         }
+        
     }
 }
