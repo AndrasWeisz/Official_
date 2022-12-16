@@ -25,9 +25,20 @@ namespace Mikroszimuláció
         {
             InitializeComponent();
 
-            people = GetPeople(@"C:\Temp\nép.csv");
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            people = GetPeople(@"C:\Users\weisz\AppData\Local\Temp\nép.csv");
+            BirthProbabilities = GetBirthProbabilities(@"C:\Users\weisz\AppData\Local\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Users\weisz\AppData\Local\Temp\halál.csv");
+
+            for (int year = 2005; year <= 2024; year++)
+            {
+                for (int i = 0; i < people.Count; i++)
+                {
+
+                }
+                int NmrOfMales = (from p in people where p.Gender == Gender.Male && p.IsAlive select p).Count();
+                int NmbrOfFemales = (from p in people where p.Gender == Gender.Female && p.IsAlive select p).Count();
+                Console.WriteLine(String.Format("Év: {0} Fiúk: {1} Lányok: {2}", year, NmrOfMales, NmbrOfFemales));
+            }
         }
         
         public  List<Person> GetPeople(string csvpath)
