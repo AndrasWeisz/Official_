@@ -29,18 +29,24 @@ namespace Mikroszimuláció
             BirthProbabilities = GetBirthProbabilities(@"C:\Users\weisz\AppData\Local\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Users\weisz\AppData\Local\Temp\halál.csv");
 
+            Simulation();
+        }
+
+        private void Simulation()
+        {
             for (int year = 2005; year <= 2024; year++)
             {
                 for (int i = 0; i < people.Count; i++)
                 {
-
+                    Person p = new Person();
+                    SimStep(year, p);
                 }
                 int NmrOfMales = (from p in people where p.Gender == Gender.Male && p.IsAlive select p).Count();
                 int NmbrOfFemales = (from p in people where p.Gender == Gender.Female && p.IsAlive select p).Count();
                 Console.WriteLine(String.Format("Év: {0} Fiúk: {1} Lányok: {2}", year, NmrOfMales, NmbrOfFemales));
             }
         }
-        
+
         public  List<Person> GetPeople(string csvpath)
         {
             using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
@@ -100,7 +106,32 @@ namespace Mikroszimuláció
             }
             return DeathProbabilities;
         }
-
+        private void SimStep(int year, Person person)
+        {
+            if (!person.IsAlive) return;
+            byte age = (byte)(year - person.BirthYear);
+            double pDeath = (from x in DeathProbabilities
+                             where x.Gender == person.Gender && x.Age == age
+                             select x.ProbOfDeath).FirstOrDefault();
+            if (rng.NextDouble() <= pDeath)
+                person.IsAlive = false;
+            if (person.IsAlive && person.Gender == Gender.Female)
+            {
+                //Szülési valószínűség kikeresése
+                double pBirth = (from x in BirthProbabilities
+                                 where x.Age == age
+                                 select x.ProbOfBirth).FirstOrDefault();
+                //Születik gyermek?
+                if (rng.NextDouble() <= pBirth)
+                {
+                    Person újszülött = new Person();
+                    újszülött.BirthYear = year;
+                    újszülött.NbrOfChildren = 0;
+                    újszülött.Gender = (Gender)(rng.Next(1, 3));
+                    people.Add(újszülött);
+                }
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
